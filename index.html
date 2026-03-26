@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lawnchair Larry</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(135deg, #001428 0%, #002040 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #fff;
+      overflow: hidden;
+    }
+    .container {
+      text-align: center;
+      padding: 2rem;
+      max-width: 600px;
+    }
+    .emoji {
+      font-size: 5rem;
+      display: block;
+      margin-bottom: 1.5rem;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #60a5fa;
+      margin-bottom: 0.75rem;
+    }
+    .tagline {
+      font-size: 1.2rem;
+      opacity: 0.7;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .body {
+      font-size: 1rem;
+      opacity: 0.55;
+      line-height: 1.6;
+    }
+    .dot {
+      width: 8px; height: 8px;
+      background: #60a5fa;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 2rem auto 0;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(0.6); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="emoji">🪑</span>
+    <h1>Lawnchair Larry</h1>
+    <p class="tagline">Achieving great heights with questionable methods.</p>
+    <p class="body">Larry tied 45 weather balloons to his lawn chair and flew to 15,000 feet. This is his legacy.</p>
+    <div class="dot"></div>
+  </div>
+</body>
+</html>

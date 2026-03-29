@@ -3,73 +3,654 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lawnchair Larry</title>
+  <title>Lawnchair Larry Half Marathon</title>
+  <meta name="description" content="The 2nd Annual Elliot Roth's San Pedro Lawnchair Larry Memorial Celebrity Half-Marathon Chronic Depression Awareness Pro-Am Fun Run Race for the Cure. 13.4 miles. July 2nd.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --sky: #6ab4e8;
+      --sky-dark: #2d7ab5;
+      --navy: #0d1f35;
+      --navy2: #142840;
+      --white: #ffffff;
+      --cream: #f8f5ef;
+      --yellow: #f5c842;
+      --red: #e03030;
+      --muted: rgba(13,31,53,0.55);
+      --border: rgba(13,31,53,0.1);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
     body {
-      background: linear-gradient(135deg, #001428 0%, #002040 100%);
+      background: var(--cream);
+      color: var(--navy);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 3rem;
+      background: rgba(13,31,53,0.92);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-logo {
+      font-family: 'Anton', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .nav-logo small {
+      display: block;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      color: var(--sky);
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .nav-cta {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--navy);
+      padding: 0.6rem 1.5rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+    .nav-cta:hover { background: #fff; transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 8rem 6rem 5rem 4rem;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/hero-balloon.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      filter: brightness(0.55);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      text-align: right;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(4rem, 10vw, 8rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      text-shadow: 0 4px 24px rgba(0,0,0,0.4);
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.65;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+
+    .btn-yellow {
+      background: var(--yellow);
+      color: var(--navy);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .btn-yellow:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+
+    .btn-outline-white {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.5);
+      margin-left: 1rem;
+    }
+    .btn-outline-white:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+    /* ── QUOTE ── */
+    .quote-band {
+      background: var(--navy);
+      color: var(--white);
+      padding: 5rem 3rem;
+      text-align: center;
+    }
+
+    .quote-band blockquote {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(2rem, 5vw, 4rem);
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .quote-band cite {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      color: var(--sky);
+      text-transform: uppercase;
+    }
+
+    /* ── RACE INFO ── */
+    .race-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6rem 3rem;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .info-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sky-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .race-info h2 {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      letter-spacing: 0.03em;
+      line-height: 1;
+      margin-bottom: 2rem;
+      color: var(--navy);
+    }
+
+    .route-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .route-point {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    .route-dot {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      color: #fff;
-      overflow: hidden;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+      margin-top: 2px;
     }
-    .container {
-      text-align: center;
-      padding: 2rem;
-      max-width: 600px;
+
+    .dot-start { background: var(--sky); color: var(--navy); }
+    .dot-finish { background: var(--yellow); color: var(--navy); }
+    .dot-dist { background: var(--navy); color: var(--white); }
+
+    .route-point h4 {
+      font-size: 0.7rem;
+      font-family: 'Space Mono', monospace;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
     }
-    .emoji {
-      font-size: 5rem;
-      display: block;
+
+    .route-point p {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.4;
+    }
+
+    .route-point small {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .route-line {
+      width: 2px;
+      height: 2rem;
+      background: linear-gradient(to bottom, var(--sky), var(--yellow));
+      margin-left: 19px;
+      margin-top: -0.5rem;
+      margin-bottom: -0.5rem;
+    }
+
+    /* event card */
+    .event-card {
+      background: var(--navy);
+      color: var(--white);
+      padding: 2.5rem;
+      border-radius: 4px;
+    }
+
+    .event-card .event-date {
+      font-family: 'Anton', sans-serif;
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--yellow);
+      margin-bottom: 0.25rem;
+    }
+
+    .event-card .event-year {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--sky);
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .event-card .event-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
       margin-bottom: 1.5rem;
-      animation: float 3s ease-in-out infinite;
     }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
+
+    .event-card .event-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sky);
     }
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: #60a5fa;
+
+    .event-card .event-val {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .btn-tickets {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      padding: 1rem;
+      background: var(--yellow);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+      margin-top: 0.5rem;
+    }
+    .btn-tickets:hover { background: #fff; }
+
+    /* ── FULL TITLE ── */
+    .full-title-band {
+      background: var(--navy2);
+      padding: 5rem 3rem;
+      text-align: center;
+    }
+
+    .full-title-band h2 {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(1.3rem, 3vw, 2.2rem);
+      letter-spacing: 0.05em;
+      color: var(--white);
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.3;
+    }
+
+    .full-title-band h2 span { color: var(--yellow); }
+
+    /* ── FAQ ── */
+    .faq-section {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 6rem 3rem;
+    }
+
+    .faq-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sky-dark);
+      margin-bottom: 0.75rem;
+      text-align: center;
+    }
+
+    .faq-section h2 {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      text-align: center;
+      letter-spacing: 0.03em;
+      color: var(--navy);
+      margin-bottom: 3rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 1.75rem 0;
+    }
+
+    .faq-item h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .faq-item p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* ── ABOUT LARRY ── */
+    .about-band {
+      background: var(--sky);
+      color: var(--navy);
+      padding: 6rem 3rem;
+    }
+
+    .about-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .about-band .eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--navy2);
+      opacity: 0.7;
       margin-bottom: 0.75rem;
     }
-    .tagline {
-      font-size: 1.2rem;
-      opacity: 0.7;
-      margin-bottom: 1.5rem;
-      font-style: italic;
+
+    .about-band h2 {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      letter-spacing: 0.03em;
+      line-height: 1.05;
+      margin-bottom: 2rem;
     }
-    .body {
+
+    .about-band p {
       font-size: 1rem;
-      opacity: 0.55;
-      line-height: 1.6;
+      line-height: 1.8;
+      color: rgba(13,31,53,0.8);
+      margin-bottom: 1rem;
+      max-width: 720px;
     }
-    .dot {
-      width: 8px; height: 8px;
-      background: #60a5fa;
-      border-radius: 50%;
-      display: inline-block;
-      margin: 2rem auto 0;
-      animation: pulse 2s ease-in-out infinite;
+
+    .about-band p strong { color: var(--navy); }
+
+    /* ── FOOTER CTA ── */
+    .footer-cta {
+      background: var(--navy);
+      color: var(--white);
+      padding: 6rem 3rem;
+      text-align: center;
     }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.3; transform: scale(0.6); }
+
+    .footer-cta h2 {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      letter-spacing: 0.03em;
+      color: var(--white);
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+
+    .footer-cta p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #07131f;
+      padding: 2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer .f-logo {
+      font-family: 'Anton', sans-serif;
+      font-size: 0.9rem;
+      color: var(--sky);
+      letter-spacing: 0.08em;
+    }
+
+    footer p {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 800px) {
+      nav { padding: 0.9rem 1.25rem; }
+      .hero { align-items: flex-start; padding: 7rem 1.5rem 4rem; }
+      .hero-content { text-align: left; max-width: 100%; }
+      .race-info { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem; }
+      .faq-section, .about-band, .footer-cta { padding: 4rem 1.5rem; }
+      footer { flex-direction: column; padding: 1.5rem; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <span class="emoji">🪑</span>
-    <h1>Lawnchair Larry</h1>
-    <p class="tagline">Achieving great heights with questionable methods.</p>
-    <p class="body">Larry tied 45 weather balloons to his lawn chair and flew to 15,000 feet. This is his legacy.</p>
-    <div class="dot"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      Lawnchair Larry
+      <small>Half Marathon &middot; San Pedro, CA</small>
+    </div>
+    <a class="nav-cta" href="https://www.eventbrite.com/e/lawnchair-larry-half-marathon-tickets-369879889707" target="_blank" rel="noopener">Sign Up &rarr;</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Lawnchair Larry Half Marathon</p>
+      <h1>Dream<br>Big</h1>
+      <p class="hero-sub">You can do great things. You can run a half-marathon. You can help raise money for a cause.</p>
+      <div>
+        <a href="https://www.eventbrite.com/e/lawnchair-larry-half-marathon-tickets-369879889707" target="_blank" rel="noopener" class="btn btn-yellow">Sign Up</a>
+        <a href="#about" class="btn btn-outline-white">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <div class="quote-band">
+    <blockquote>&ldquo;A man can&rsquo;t just sit around.&rdquo;</blockquote>
+    <cite>&mdash; Larry Walters</cite>
   </div>
+
+  <!-- RACE DETAILS -->
+  <div class="race-info">
+    <div>
+      <p class="info-eyebrow">The Route</p>
+      <h2>The Race</h2>
+      <p style="font-size:0.95rem; color:var(--muted); margin-bottom:2rem; line-height:1.7;">From where Larry launched on his historic flight, to where he landed.</p>
+      <div class="route-detail">
+        <div class="route-point">
+          <div class="route-dot dot-dist">13.4<br>MI</div>
+          <div>
+            <h4>Distance</h4>
+            <p>13.4 Miles</p>
+            <small>A Half-Marathon</small>
+          </div>
+        </div>
+        <div class="route-line"></div>
+        <div class="route-point">
+          <div class="route-dot dot-start">START</div>
+          <div>
+            <h4>Starting Line</h4>
+            <p>1633 W 7th St</p>
+            <small>San Pedro, CA &middot; 7:00am</small>
+          </div>
+        </div>
+        <div class="route-line"></div>
+        <div class="route-point">
+          <div class="route-dot dot-finish">END</div>
+          <div>
+            <h4>Finish Line</h4>
+            <p>432 E 45th St</p>
+            <small>@ whenever you finish</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date">July 2nd</div>
+      <div class="event-year">Saturday &middot; 2026</div>
+      <div class="event-row">
+        <span class="event-label">When</span>
+        <span class="event-val">Saturday, July 2nd @ 7:00am</span>
+      </div>
+      <div class="event-row">
+        <span class="event-label">Starting Line</span>
+        <span class="event-val">San Pedro, CA</span>
+      </div>
+      <div class="event-row">
+        <span class="event-label">What&rsquo;s Included</span>
+        <span class="event-val">T-shirt, balloon, race support, snacks &amp; water</span>
+      </div>
+      <div class="event-row">
+        <span class="event-label">Race Support</span>
+        <span class="event-val">Two support vehicles, multiple water &amp; snack stops</span>
+      </div>
+      <a href="https://www.eventbrite.com/e/lawnchair-larry-half-marathon-tickets-369879889707" target="_blank" rel="noopener" class="btn-tickets">Get Tickets &rarr;</a>
+    </div>
+  </div>
+
+  <!-- FULL OFFICIAL TITLE -->
+  <div class="full-title-band">
+    <h2>
+      <span>2nd Annual</span> Elliot Roth&rsquo;s San Pedro Lawnchair Larry Memorial Celebrity Half-Marathon Chronic Depression Awareness Pro-Am Fun Run <span>Race for the Cure</span>
+    </h2>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <p class="faq-eyebrow">Got Questions?</p>
+    <h2>FAQs</h2>
+
+    <div class="faq-item">
+      <h3>Why are you doing this?</h3>
+      <p>Larry Walters had a dream. He wanted to fly. When he was rejected from the Air Force due to poor eyesight, he didn&rsquo;t let that stop him. Using weather balloons, he launched <em>Inspiration I</em>, a cluster balloon aircraft, flying up past 14,000 ft and over LA airspace. He shot out some of his balloons with a BB pellet gun, eventually dropping to land on some power lines in Long Beach.</p>
+      <p style="margin-top:0.75rem;">Larry was an inspiration, going on Letterman and receiving his 15 minutes of fame, but tragically could never achieve all his ambitions. He ended his own life in 1993. This race commemorates that historic flight and raises money for mental health in order to show people that you can dare to dream and do ridiculous things.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What does my ticket cover?</h3>
+      <p>Your ticket covers a t-shirt, balloon, race support and additional snacks, water and more during the run.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What kind of support does the race have?</h3>
+      <p>We have two vehicles offering race support and multiple stops for water, snacks and more.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What should I bring?</h3>
+      <p>Bring good running shoes, a small pack with water, sunscreen, a hat, and whatever you might need to be successful in your race.</p>
+    </div>
+  </div>
+
+  <!-- ABOUT LARRY -->
+  <div id="about" class="about-band">
+    <div class="about-inner">
+      <p class="eyebrow">The Legend</p>
+      <h2>Who Was<br>Larry Walters?</h2>
+      <p>On July 2nd, 1982, a man named Larry Walters strapped 45 helium-filled weather balloons to a lawn chair in his girlfriend&rsquo;s backyard in San Pedro, California. He packed a pellet gun, sandwiches, beer, and a CB radio — and launched himself into the sky.</p>
+      <p>He rose to <strong>14,000 feet</strong>, drifting through LA&rsquo;s controlled airspace, spotted by bewildered pilots who reported a man in a lawn chair to air traffic control. He eventually descended by shooting out balloons with his pellet gun, landing on power lines in Long Beach.</p>
+      <p>When asked by a reporter why he did it, Larry said: <strong>&ldquo;A man can&rsquo;t just sit around.&rdquo;</strong></p>
+      <p>This race runs the exact path Larry flew &mdash; 13.4 miles from launch to landing &mdash; and raises money for mental health awareness in his honor.</p>
+    </div>
+  </div>
+
+  <!-- FOOTER CTA -->
+  <div class="footer-cta">
+    <h2>Dream Big.</h2>
+    <p>Sign up. Run 13.4 miles. Help raise money for mental health. You can do great things.</p>
+    <a href="https://www.eventbrite.com/e/lawnchair-larry-half-marathon-tickets-369879889707" target="_blank" rel="noopener" class="btn btn-yellow" style="font-size:0.9rem; padding:1.1rem 3rem;">Get Tickets &rarr;</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="f-logo">&#127878; Lawnchair Larry Half Marathon</span>
+    <p>San Pedro, CA &middot; July 2nd &middot; lawnchairlarry.org</p>
+    <p>&copy; 2025 Lawnchair Larry Half Marathon &middot; <a href="https://www.eventbrite.com/e/lawnchair-larry-half-marathon-tickets-369879889707" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.4);">Eventbrite</a></p>
+  </footer>
+
 </body>
 </html>
